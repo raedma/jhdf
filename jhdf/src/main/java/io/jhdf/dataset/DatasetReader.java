@@ -63,7 +63,7 @@ public final class DatasetReader {
 
 		final Object data = type.fillData(buffer, dimensions, hdfBackingStorage);
 
-		if (isScalar) {
+		if (isScalar && data.getClass().isArray()) {
 			return Array.get(data, 0);
 		} else {
 			return data;
